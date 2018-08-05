@@ -17,7 +17,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public List<User> findAll() {
-        String sql = "SELECT * FROM USER";
+        String sql = "SELECT * FROM users";
         return jdbcTemplate.query(sql, new UserMapper());
     }
 }
