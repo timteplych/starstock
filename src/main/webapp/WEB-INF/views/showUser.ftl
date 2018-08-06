@@ -5,23 +5,27 @@
     <title>Title</title>
 </head>
 <body>
-    <h1>Users list</h1>
+    <h1>show Users</h1>
+    <h1>${user.id}</h1>
     <table>
         <tr>
-            <th>Id</th>
-            <th>Username</th>
-            <th>Email</th>
-            <th>Age</th>
+            <td>ID</td>
+            <td>${user.id}</td>
         </tr>
-    <#list users as user>
         <tr>
-            <td><a href="/user/${user.id}">${user.id}</a> </td>
+            <td>Username</td>
             <td>${user.name}</td>
+        </tr>
+        <tr>
+            <td>E-mail</td>
             <td>${user.email}</td>
+        </tr>
+        <tr>
+            <td>Age</td>
             <td>${user.age}</td>
         </tr>
-    </#list>
     </table>
-
+    <br>
+    <a href="/users">back to users</a>
 </body>
 </html>

@@ -17,18 +17,20 @@ public class UserDaoImpl implements UserDao{
 
     @Override
     public void save(User user) {
-        String sql = "INSERT INTO user (username,email,age) VALUES (?,?,?)";
+        String sql = "INSERT INTO users (username,email,age) VALUES (?,?,?)";
         jdbcTemplate.update(sql,user.getName(),user.getEmail(),user.getAge());
     }
 
     @Override
     public User getById(int id) {
-        return null;
+        String sql = "SELECT * FROM users WHERE id = ?";
+        return jdbcTemplate.queryForObject(sql,new UserMapper(),id);
     }
 
     @Override
     public void update(User user) {
-
+        String sql = "UPDATE users SET username=?, email=?, age=? WHERE id=?";
+        jdbcTemplate.update(sql,user.getName(),user.getEmail(),user.getAge(), user.getId());
     }
 
     @Override
@@ -39,6 +41,7 @@ public class UserDaoImpl implements UserDao{
 
     @Override
     public void delete(int id) {
-
+        String sql = "DELETE FROM users WHERE id =?";
+        jdbcTemplate.update(sql,id);
     }
 }
